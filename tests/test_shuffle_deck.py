@@ -38,3 +38,10 @@ class TestShuffleCards(unittest.TestCase):
         empty_deck = []
         shuffled_empty_deck = shuffle_cards(empty_deck.copy())
         self.assertEqual(empty_deck, shuffled_empty_deck)
+    def test_something_other_than_list(self):
+        with self.assertRaises(TypeError):
+            shuffle_cards("not a list")
+        with self.assertRaises(TypeError):
+            shuffle_cards(123)
+        with self.assertRaises(TypeError):
+            shuffle_cards({"not": "a list"})

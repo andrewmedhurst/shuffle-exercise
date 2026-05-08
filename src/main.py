@@ -9,6 +9,9 @@ def shuffle_cards(card_list: list[Card] = STANDARD_DECK) -> list[Card]:
   if card_list is None:
       return []
   
+  if not isinstance(card_list, list):
+      raise TypeError(f"Input must be a list of Card objects. The type that was passed in is {type(card_list)}")
+  
   deck_length = len(card_list)
   for i in range(deck_length - 1, 0, -1):
      swap_index = random.randint(0, i)

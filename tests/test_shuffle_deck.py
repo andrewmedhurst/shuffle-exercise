@@ -21,9 +21,6 @@ class TestShuffleCards(unittest.TestCase):
         shuffled_deck_1 = shuffle_cards(original_deck.copy())
         shuffled_deck_2 = shuffle_cards(original_deck.copy())
         self.assertNotEqual(shuffled_deck_1, shuffled_deck_2)
-    def test_shuffle_none_deck(self):
-        shuffled_empty_deck = shuffle_cards(None)
-        self.assertEqual([], shuffled_empty_deck)
     def test_shuffle_single_card(self):
         single_card_deck = [STANDARD_DECK[0]]
         shuffled_single_card_deck = shuffle_cards(single_card_deck.copy())
@@ -45,3 +42,5 @@ class TestShuffleCards(unittest.TestCase):
             shuffle_cards(123)
         with self.assertRaises(TypeError):
             shuffle_cards({"not": "a list"})
+        with self.assertRaises(TypeError):
+            shuffle_cards(None)

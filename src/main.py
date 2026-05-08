@@ -6,9 +6,6 @@ import random
 
 def shuffle_cards(card_list: list[Card] = STANDARD_DECK) -> list[Card]:
   # Implement the shuffling algorithm here
-  if card_list is None:
-      return []
-  
   if not isinstance(card_list, list):
       raise TypeError(f"Input must be a list of Card objects. The type that was passed in is {type(card_list)}")
   
